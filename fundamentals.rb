@@ -31,9 +31,23 @@ trains.each do |train|
     end
 end
 
-northbound = Array.new()
-trains.each do |train|
-    if train[:direction] == "north"
-        northbound << train[:train]
+def train_direction(array, direction)
+    new_array = Array.new()
+    array.each do |train|
+        if train[:direction] == direction
+            new_array << train[:train]
+        end
     end
+    return new_array
+end
+
+northbound = train_direction(trains, "north")
+eastbound = train_direction(trains, "east")
+puts northbound
+puts eastbound
+
+trains[4].merge!(first_departure_time: 6)
+
+trains.each do |train|
+    puts train
 end
