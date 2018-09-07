@@ -17,3 +17,23 @@ trains.each do |train|
     end
 end
 
+frequency_80B = 0;
+trains.each do |train|
+    if train[:train] == "80B"
+        frequency_80B = train[:frequency_in_minutes]
+    end
+end
+
+direction_610 = 0;
+trains.each do |train|
+    if train[:train] == "610"
+        direction_610 = train[:direction]
+    end
+end
+
+northbound = Array.new()
+trains.each do |train|
+    if train[:direction] == "north"
+        northbound << train[:train]
+    end
+end
